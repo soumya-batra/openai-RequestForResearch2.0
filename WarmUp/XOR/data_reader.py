@@ -1,4 +1,5 @@
 import pickle
+import numpy
 import sys
 
 class DataReader():
@@ -12,10 +13,14 @@ class DataReader():
         self.sequences = data['sequences']
         self.labels = data['labels']
 
-    def get_sequences(self):
+    def get_sequences(self, convert_to_numpy_array = True):
+        if convert_to_numpy_array:
+            return numpy.array(self.sequences)
         return self.sequences
 
-    def get_labels(self):
+    def get_labels(self, convert_to_numpy_array = True):
+        if convert_to_numpy_array:
+            return numpy.array(self.labels)
         return self.labels
 
 
